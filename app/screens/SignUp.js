@@ -1,31 +1,29 @@
-import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, SafeAreaView } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
-export default function App() {
+export default function SignupScree() {
     const navigation = useNavigation();
 
     const handleSignIn = () => {
-        // Here you would typically handle the sign-in logic (e.g., API call)
-        console.log("Create Account button pressed");
-        navigation.navigate("ABOUT"); // Navigate to About screen after creating account
+        navigation.navigate("LOGIN"); // Navigate to login screen
     };
 
     const handleSignUp = () => {
-        navigation.navigate("HOME"); // Navigate to Home screen
+        navigation.navigate("LESSONS"); // Navigate to lessons screen after creating account
     };
 
     return (
         <LinearGradient colors={['#8BD68E', '#28D039']} style={styles.container}>
-            <View style={styles.headerContainer}>
+            <SafeAreaView style={styles.headerContainer}>
                 <Text style={styles.title}>KUMON nahLEDGE</Text>
                 <Image
                     source={require('../assets/favicon.png')} // Ensure the path to your logo is correct
                     style={styles.logo}
                 />
                 <Text style={styles.subtitle}>Learn Math Today</Text>
-            </View>
+            </SafeAreaView>
             <View style={styles.formContainer}>
                 <Text style={styles.signInText}>Create New Account</Text>
                 <View style={styles.inputGroup}>
@@ -33,8 +31,12 @@ export default function App() {
                     <InputField label="Email Address" placeholder="learnmath221@gmail.com" />
                     <InputField label="Password" placeholder="***************" secureTextEntry={true} />
                 </View>
-                <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+                <TouchableOpacity style={styles.button} onPress={handleSignUp}>
                     <Text style={styles.buttonText}>Create Account</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity style={styles.button} onPress={handleSignIn}>
+                    <Text style={styles.buttonText}>Already have an account? Sign In</Text>
                 </TouchableOpacity>
             </View>
         </LinearGradient>
@@ -59,10 +61,10 @@ const styles = StyleSheet.create({
         gap: 50,
     },
     headerContainer: {
-        height: 200, // Set a fixed height for the header
-        justifyContent: 'center', // Center content vertically
-        alignItems: 'center', // Center content horizontally
-        gap: 20, // Reduced gap for a more compact look
+        height: 200,
+        justifyContent: 'center',
+        alignItems: 'center',
+        gap: 20,
     },
     title: {
         fontSize: 30,
@@ -71,8 +73,8 @@ const styles = StyleSheet.create({
         marginTop: 30,
     },
     logo: {
-        height: 100, // Reduced logo height
-        width: 100, // Reduced logo width
+        height: 100,
+        width: 100,
     },
     subtitle: {
         color: '#000000',
@@ -82,10 +84,10 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
     },
     formContainer: {
-        marginTop: 20, // Adjusted margin for form container
+        marginTop: 20,
     },
     signInText: {
-        fontSize: 30, // Reduced font size for a more compact look
+        fontSize: 30,
         fontWeight: '700',
         textAlign: 'center',
         fontStyle: 'italic',
@@ -104,7 +106,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     button: {
-        backgroundColor: '#0021F8', // Change this to your preferred button color
+        backgroundColor: '#0021F8',
         borderRadius: 50,
         paddingVertical: 15,
         marginTop: 20,

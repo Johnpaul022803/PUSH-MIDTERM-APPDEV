@@ -1,15 +1,15 @@
-import { Button, StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
+import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image } from 'react-native';
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
 
     const LoginScreen =  () => {
         const navigation = useNavigation();
-        const handleAbout = () => {
-            navigation.navigate("ABOUT");
+        const handleLessons = () => {
+            navigation.navigate("LESSONS");
         };
         const handleSignUp = () => {
-            navigation.navigate("HOME"); // Navigate to Home screen
+            navigation.navigate("SIGNUP"); // Navigate to Sign Up screen
         };
 
     return (
@@ -30,8 +30,8 @@ import { useNavigation } from '@react-navigation/native';
                 </View>
                 
                 <TouchableOpacity style={styles.Loginbutton}
-                 onPress={handleAbout}>
-                    <Text style={styles.LoginbuttonText}>Login In</Text>
+                onPress={handleLessons}>
+                    <Text style={styles.LoginbuttonText}>Log In</Text>
                 </TouchableOpacity>
                 <Text style={styles.orText}>Or</Text>
                 
