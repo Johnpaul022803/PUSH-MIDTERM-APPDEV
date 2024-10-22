@@ -1,17 +1,19 @@
 import React from 'react';
 import { View, Text, StyleSheet, SafeAreaView, Image, FlatList } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
+import { gradientColors } from '../COLOR/color'; // Import gradient colors for consistency
 
 const shapes = [
-  { id: '1', name: 'Circle', image: require('../') },
-  { id: '2', name: 'Square', image: require('../assets/shapes/square.png') },
-  { id: '3', name: 'Rectangle', image: require('../assets/shapes/rectangle.png') },
-  { id: '4', name: 'Triangle', image: require('../assets/shapes/triangle.png') },
-  { id: '5', name: 'Diamond', image: require('../assets/shapes/diamond.png') },
-  { id: '6', name: 'Star', image: require('../assets/shapes/star.png') },
-  { id: '7', name: 'Pentagon', image: require('../assets/shapes/pentagon.png') },
-  { id: '8', name: 'Hexagon', image: require('../assets/shapes/hexagon.png') },
-  { id: '9', name: 'Heptagon', image: require('../assets/shapes/heptagon.png') },
-  { id: '10', name: 'Octagon', image: require('../assets/shapes/octagon.png') },
+  { id: '1', name: 'Circle', image: require('../../assets/shapes/circle.png') },
+  { id: '2', name: 'Square', image: require('../../assets/shapes/square.png') },
+  { id: '3', name: 'Rectangle', image: require('../../assets/shapes/rectangle.png') },
+  { id: '4', name: 'Triangle', image: require('../../assets/shapes/triangle.png') },
+  { id: '5', name: 'Diamond', image: require('../../assets/shapes/diamond.png') },
+  { id: '6', name: 'Star', image: require('../../assets/shapes/star.png') },
+  { id: '7', name: 'Pentagon', image: require('../../assets/shapes/pentagon.png') },
+  { id: '8', name: 'Hexagon', image: require('../../assets/shapes/hexagon.png') },
+  { id: '9', name: 'Heptagon', image: require('../../assets/shapes/heptagon.png') },
+  { id: '10', name: 'Octagon', image: require('../../assets/shapes/octagon.png') },
 ];
 
 const SHAPE = () => {
@@ -23,36 +25,44 @@ const SHAPE = () => {
   );
 
   return (
-    <SafeAreaView style={styles.container}>
-      <FlatList
-        data={shapes}
-        renderItem={renderItem}
-        keyExtractor={(item) => item.id}
-        numColumns={2} // Adjust the number of columns to suit your design
-      />
-    </SafeAreaView>
+    <LinearGradient colors={gradientColors} style={styles.gradient}>
+      <SafeAreaView style={styles.container}>
+      <View>
+        <Image
+          source={require('../../assets/favicon.png')}/>
+      </View>
+        <FlatList
+          data={shapes}
+          renderItem={renderItem}
+          keyExtractor={(item) => item.id}
+          numColumns={2} // Keeps two items in a row
+        />
+      </SafeAreaView>
+    </LinearGradient>
   );
 };
 
 const styles = StyleSheet.create({
+  gradient: {
+    flex: 1,
+  },
   container: {
     flex: 1,
-    backgroundColor: '#f8f8f8',
     padding: 10,
   },
   item: {
     flex: 1,
     alignItems: 'center',
-    margin: 10,
+    margin: 15, // Adds spacing between items for a better layout
   },
   image: {
-    width: 80,
-    height: 80,
+    width: 100, // Slightly increased the size for better visibility
+    height: 100,
     resizeMode: 'contain',
   },
   text: {
     marginTop: 10,
-    fontSize: 16,
+    fontSize: 18,
     color: '#333',
   },
 });
