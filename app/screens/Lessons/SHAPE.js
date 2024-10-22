@@ -3,6 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, FlatList } from 'react-nat
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradientColors } from '../COLOR/color'; // Import gradient colors for consistency
 
+
 const shapes = [
   { id: '1', name: 'Circle', image: require('../../assets/shapes/circle.png') },
   { id: '2', name: 'Square', image: require('../../assets/shapes/square.png') },
@@ -27,9 +28,14 @@ const SHAPE = () => {
   return (
     <LinearGradient colors={gradientColors} style={styles.gradient}>
       <SafeAreaView style={styles.container}>
-      <View>
+      <View style ={styles.header}>
         <Image
           source={require('../../assets/favicon.png')}/>
+          <Text>Learn Math Today</Text>
+          <Text style={{
+            fontWeight: 'bold',
+            fontSize: 20,
+          }}>LET'S LEARN OUR SHAPES!</Text>
       </View>
         <FlatList
           data={shapes}
@@ -37,6 +43,7 @@ const SHAPE = () => {
           keyExtractor={(item) => item.id}
           numColumns={2} // Keeps two items in a row
         />
+       
       </SafeAreaView>
     </LinearGradient>
   );
@@ -64,7 +71,14 @@ const styles = StyleSheet.create({
     marginTop: 10,
     fontSize: 18,
     color: '#333',
+    fontWeight: 'bold',
   },
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 10,
+  },
+  
 });
 
 export default SHAPE;

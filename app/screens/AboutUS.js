@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     flexGrow: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 16,
+   
   },
   gradient: {
     width: '100%',

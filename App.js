@@ -7,7 +7,10 @@ import MultiScreen from './app/screens/MultiScreen';
 import DiviScreen from './app/screens/DiviScreen';
 import AddiScreen from './app/screens/AddiScreen';
 import SubScreen from './app/screens/SubScreen';
-import GuessShape from './app/screens/Lessons/SHAPE';
+import LessonGuessShape from './app/screens/Lessons/SHAPE';
+import LessonCountingNumbers from './app/screens/Lessons/COUNTING';
+import ShapePlay from './app/screens/ShapePlay';
+import CountPlay from './app/screens/CountPlay';
 
 const Stack = createNativeStackNavigator();
 
@@ -22,7 +25,10 @@ const App = () => {
         <Stack.Screen name ="DIVI" component={DiviScreen} />
         <Stack.Screen name="ADDI" component={AddiScreen} />
         <Stack.Screen name ="SUB" component={SubScreen} />
-        <Stack.Screen name ="SHAPE" component={GuessShape} />
+        <Stack.Screen name ="SHAPE" component={LessonGuessShape} />
+        <Stack.Screen name ="LESSONCOUNTING" component={LessonCountingNumbers} /> 
+        <Stack.Screen name ="SHAPEPLAY" component={ShapePlay} />
+        <Stack.Screen name ="COUNTPLAY" component={CountPlay} />
       </Stack.Navigator>
     </NavigationContainer>
   );
