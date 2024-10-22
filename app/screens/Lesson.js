@@ -71,7 +71,7 @@ const AboutScreen = () => {
       </TouchableOpacity>
 
 
-      <TouchableOpacity style={[styles.button, styles.guessShape]} onPress={() => navigation.navigate("GUESS_SHAPE")}>
+      <TouchableOpacity style={[styles.button, styles.guessShape]} onPress={() => navigation.navigate("SHAPE")}>
         <Text style={styles.buttonText}>GUESS THE SHAPE</Text>
       </TouchableOpacity>
     </LinearGradient>
