@@ -3,67 +3,130 @@ import { View, Text, StyleSheet, SafeAreaView, Image, FlatList } from 'react-nat
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradientColors } from '../COLOR/color'; // Import gradient colors for consistency
 
-
 const fruits = [
-  { id: '1',number: '1', name: 'One', image: require('../../assets/fruits/cherries.png')},
-  { id: '2',number: '2', name: 'Two', image: require('../../assets/fruits/orange.png') },
-  { id: '3',number: '3', name: 'Three', image: require('../../assets/fruits/apple.png') },
-  { id: '4',number: '4', name: 'Four', image: require('../../assets/fruits/strawberry.png') },
-  { id: '5',number: '5', name: 'Five', image: require('../../assets/fruits/banana.png') },
-  { id: '6',number: '6', name: 'Six', image: require('../../assets/fruits/pineapple.png') },
-  { id: '7',number: '7', name: 'Seven', image: require('../../assets/fruits/grapes.png') },
-  { id: '8',number: '8', name: 'Eight', image: require('../../assets/fruits/peach.png') },
-  { id: '9',number: '9', name: 'Nine', image: require('../../assets/fruits/mango.png') },
-  { id: '10',number: '10', name: 'Ten', image: require('../../assets/fruits/watermelon.png') },
+  { id: '1',number: require('../../assets/fruits/Number/1.png'), name: 'One', image: require('../../assets/fruits/cherries.png') },
+  { id: '2', number: require('../../assets/fruits/Number/2.png'), name: 'Two', image: require('../../assets/fruits/orange.png') },
+  { id: '3', number: require('../../assets/fruits/Number/3.png'), name: 'Three', image: require('../../assets/fruits/apple.png') },
+  { id: '4', number: require('../../assets/fruits/Number/4.png'), name: 'Four', image: require('../../assets/fruits/strawberry.png') },
+  { id: '5', number: require('../../assets/fruits/Number/5.png'), name: 'Five', image: require('../../assets/fruits/banana.png') },
+  { id: '6', number: require('../../assets/fruits/Number/6.png'), name: 'Six', image: require('../../assets/fruits/pineapple.png') },
+  { id: '7', number: require('../../assets/fruits/Number/7.png'), name: 'Seven', image: require('../../assets/fruits/grapes.png') },
+  { id: '8', number: require('../../assets/fruits/Number/8.png'), name: 'Eight', image: require('../../assets/fruits/peach.png') },
+  { id: '9', number: require('../../assets/fruits/Number/9.png'), name: 'Nine', image: require('../../assets/fruits/mango.png') },
+  { id: '10', number: require('../../assets/fruits/Number/10.png'), name: 'Ten', image: require('../../assets/fruits/watermelon.png') },
 ];
 
 const LESSONCOUNTINGNUMBERS = () => {
   const renderItem = ({ item }) => (
-    <View style={styles.ItemContainer}>
-    <View style={styles.item}>
-    {item.id === '2' ? ( // Check if the item is cherries
-          <View style={styles.cherriesContainer}>
+    <View style={styles.itemContainer}>
+      <View style={styles.itemRow}>
+        <Image source={item.number} style={styles.numberImage} />
+        <View style={styles.item}>
+          {item.id === '2' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '3' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '4' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '5' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '6' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '7' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '8' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '9' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : item.id === '10' ? (
+            <View style={styles.imageRow}>
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+              <Image source={item.image} style={styles.image} />
+            </View>
+          ) : (
             <Image source={item.image} style={styles.image} />
-            <Image source={item.image} style={styles.image} />
-          </View>
-        ) : 
-        item.id === '3' ? ( // Check if the item is cherries
-          <View style={styles.cherriesContainer}>
-            <Image source={item.image} style={styles.image} />
-            <Image source={item.image} style={styles.image} />
-            <Image source={item.image} style={styles.image} />
-          </View>
-        ) : 
-        
-        
-        ( // Check if the item is right
-      <Image source={item.image} style={styles.image} />)
-    }
-      <Text style={styles.number}>{item.number}</Text>
-      <Text style={styles.text}>{item.name}</Text>
-    </View>
+          )}
+          <Text style={styles.text}>{item.name}</Text>
+        </View>
+      </View>
     </View>
   );
+  
 
   return (
     <LinearGradient colors={gradientColors} style={styles.gradient}>
       <SafeAreaView style={styles.container}>
-      <View style ={styles.header}>
-        <Image
-          source={require('../../assets/favicon.png')}/>
+        <View style={styles.header}>
+          <Image source={require('../../assets/favicon.png')} />
           <Text>Learn Math Today</Text>
-          <Text style={{
-            fontWeight: 'bold',
-            fontSize: 20,
-          }}>LET'S LEARN OUR SHAPES!</Text>
-      </View>
+          <Text style={styles.headerTitle}>LET'S LEARN OUR NUMBERS!</Text>
+        </View>
         <FlatList
           data={fruits}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           numColumns={2} // Keeps two items in a row
         />
-       
       </SafeAreaView>
     </LinearGradient>
   );
@@ -77,36 +140,62 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 10,
   },
+  itemContainer: {
+    flex: 1,
+    backgroundColor: '#8BD68E',
+    borderRadius: 10,
+    margin: 10,
+    padding: 10,
+    width: 160, // Adjusted to give more space for number and images
+    height: 180,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 3,
+    elevation: 3,
+    alignItems: 'center', // Center content inside the item container
+    justifyContent: 'center',
+  },
+  itemRow: {
+    flexDirection: 'row', // Align items in a row (number on left, images on right)
+    alignItems: 'center', // Vertically center the number and images
+  },
   item: {
     flex: 1,
     alignItems: 'center',
-    margin: 15, // Adds spacing between items for a better layout
-    
+    justifyContent: 'center',
+  },
+  imageRow: {
+    flexDirection: 'row', // Arrange images in a row
+    flexWrap: 'wrap',
+    justifyContent: 'center',
+    alignItems: 'center',
+    maxWidth: '100%',
   },
   image: {
-    width: 50, // Slightly increased the size for better visibility
-    height: 50,
-   
+    width: 40,
+    height: 40,
+    marginHorizontal: 3,
+    resizeMode: 'contain',
+  },
+  numberImage: {
+    width: 40,
+    height: 40,
+    marginRight: 10, // Adds space between number and images
   },
   text: {
-    marginTop: 10,
-    fontSize: 18,
+    marginTop: 5,
+    fontSize: 14,
     color: '#333',
-    fontWeight: 'bold',
   },
   header: {
     alignItems: 'center',
     marginBottom: 20,
     marginTop: 10,
   },
-  ItemContainer: {
-    flex: 1,
-    shadowColor: 'black', // Shadow color
-    shadowOffset: { width: 0, height: 2 }, // Shadow offset
-    shadowOpacity: 0.5, // Shadow opacity
-    shadowRadius: 5, // Shadow radius
-    elevation: 5, 
-    margin: 20,
+  headerTitle: {
+    fontWeight: 'bold',
+    fontSize: 20,
   },
 });
 

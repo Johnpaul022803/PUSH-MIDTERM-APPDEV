@@ -11,6 +11,7 @@ import LessonGuessShape from './app/screens/Lessons/SHAPE';
 import LessonCountingNumbers from './app/screens/Lessons/COUNTING';
 import ShapePlay from './app/screens/ShapePlay';
 import CountPlay from './app/screens/CountPlay';
+import LessonAddition from './app/screens/Lessons/ADDITION';
 
 const Stack = createNativeStackNavigator();
 
@@ -27,6 +28,7 @@ const App = () => {
         <Stack.Screen name ="SUB" component={SubScreen} />
         <Stack.Screen name ="SHAPE" component={LessonGuessShape} />
         <Stack.Screen name ="LESSONCOUNTING" component={LessonCountingNumbers} /> 
+        <Stack.Screen name ="LESSONADDITION" component={LessonAddition} />
         <Stack.Screen name ="SHAPEPLAY" component={ShapePlay} />
         <Stack.Screen name ="COUNTPLAY" component={CountPlay} />
       </Stack.Navigator>

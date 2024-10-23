@@ -32,7 +32,7 @@ const AboutScreen = () => {
       </TouchableOpacity>
 
       {/* Navigation to Lessons */}
-      {['MULTI', 'DIVI', 'ADDI', 'SUB', 'COUNTING', 'SHAPE'].map((lesson, index) => (
+      {['MULTI', 'DIVI', 'LESSONADDITION', 'SUB', 'COUNTING', 'SHAPE'].map((lesson, index) => (
         <TouchableOpacity 
           key={index} 
           style={styles.button} 
@@ -57,7 +57,7 @@ const LessonScreen = () => {
       <View style={styles.header}>
         <Text style={styles.title}>Choose a Lesson</Text>
       </View>
-      {['LESSONCOUNTING', 'SHAPE', 'ADDI', 'SUB', 'MULTI', 'DIVI'].map((lesson, index) => (
+      {['LESSONCOUNTING', 'SHAPE', 'LESSONADDITION', 'SUB', 'MULTI', 'DIVI'].map((lesson, index) => (
         <TouchableOpacity 
           key={index} 
           style={styles.button} 
