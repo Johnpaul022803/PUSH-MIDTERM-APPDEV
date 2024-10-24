@@ -1,8 +1,11 @@
 import React from 'react';
-import { View, Text, StyleSheet, SafeAreaView, Image, FlatList } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView, Image, FlatList, Dimensions } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradientColors } from '../COLOR/color'; // Import gradient colors for consistency
 
+const { width } = Dimensions.get('window');
+const containerSize = width * 0.4; // Adjust container size dynamically based on screen width
+const imageSize = width * 0.25; // Adjust image size dynamically based on screen width
 
 const shapes = [
   { id: '1', name: 'Circle', image: require('../../assets/shapes/circle.png') },
@@ -19,7 +22,7 @@ const shapes = [
 
 const SHAPE = () => {
   const renderItem = ({ item }) => (
-    <View style={styles.item}>
+    <View style={styles.itemContainer}>
       <Image source={item.image} style={styles.image} />
       <Text style={styles.text}>{item.name}</Text>
     </View>
@@ -28,22 +31,17 @@ const SHAPE = () => {
   return (
     <LinearGradient colors={gradientColors} style={styles.gradient}>
       <SafeAreaView style={styles.container}>
-      <View style ={styles.header}>
-        <Image
-          source={require('../../assets/favicon.png')}/>
+        <View style={styles.header}>
+          <Image style={styles.logo} source={require('../../assets/favicon.png')} />
           <Text>Learn Math Today</Text>
-          <Text style={{
-            fontWeight: 'bold',
-            fontSize: 20,
-          }}>LET'S LEARN OUR SHAPES!</Text>
-      </View>
+          <Text style={styles.title}>LET'S LEARN OUR SHAPES!</Text>
+        </View>
         <FlatList
           data={shapes}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
           numColumns={2} // Keeps two items in a row
         />
-       
       </SafeAreaView>
     </LinearGradient>
   );
@@ -56,14 +54,39 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 10,
-  },
-  item: {
-    flex: 1,
     alignItems: 'center',
-    margin: 15, // Adds spacing between items for a better layout
+    justifyContent: 'center',
+  },
+  header: {
+    alignItems: 'center',
+    marginBottom: 20,
+    marginTop: 10,
+  },
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+  itemContainer: {
+    width: 145,
+    height: 181,
+    backgroundColor: '#8BD68E', // Custom background for the container
+    alignItems: 'center',
+    justifyContent: 'center',
+   
+    
+    
+    margin: 10,
+    borderRadius: 40, // Rounded corners for the container
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.3,
+    shadowRadius: 4,
+    elevation: 5, // Adds shadow for Android
+    borderWidth: 5, // Thickness of the black outline
+    borderColor: '#000', // Black border color
   },
   image: {
-    width: 100, // Slightly increased the size for better visibility
+    width: 100, // Adjusted size for images
     height: 100,
     resizeMode: 'contain',
   },
@@ -73,12 +96,11 @@ const styles = StyleSheet.create({
     color: '#333',
     fontWeight: 'bold',
   },
-  header: {
-    alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 10,
+  logo: {
+    width: 90,
+    height: 70,
+    resizeMode: 'contain',
   },
-  
 });
 
 export default SHAPE;

@@ -36,7 +36,7 @@ const AboutScreen = () => {
         <TouchableOpacity 
           key={index} 
          >
-          <Text style={styles.buttonText}>{lesson.replace('_', ' ')}</Text>
+          <Text style={styles.buttonText}>{lesson.replace('LESSON', ' ')}</Text>
         </TouchableOpacity>
       ))}
     </LinearGradient>
@@ -56,12 +56,12 @@ const LessonScreen = () => {
       <View style={styles.header}>
         <Text style={styles.title}>Choose a Lesson</Text>
       </View>
-      {['LESSONCOUNTING', 'SHAPE', 'LESSONADDITION', 'LESSONSUBTRACTION', 'LESSONMULTIPLICATION', 'LESSONDIVISION'].map((lesson, index) => (
+      {['LESSONCOUNTING', 'LESSONSHAPE', 'LESSONADDITION', 'LESSONSUBTRACTION', 'LESSONMULTIPLICATION', 'LESSONDIVISION'].map((lesson, index) => (
         <TouchableOpacity 
           key={index} 
           style={styles.button} 
           onPress={() => handleNavigation(lesson)}>
-          <Text style={styles.buttonText}>{lesson.replace('_', ' ')}</Text>
+          <Text style={styles.buttonText}>{lesson.replace('LESSON', ' ')}</Text>
         </TouchableOpacity>
       ))}
     </LinearGradient>
@@ -78,11 +78,11 @@ const App = () => {
         tabBarIcon: ({ focused, color, size }) => {
           let iconName;
           if (route.name === 'Lesson') {
-            iconName = focused ? 'book' : 'book-outline';
+            iconName = focused ? 'pencil' : 'pencil-outline';
           } else if (route.name === 'Play') {
             iconName = focused ? 'play-circle' : 'play-circle-outline';
           } else if (route.name === 'About Us') {
-            iconName = focused ? 'information-circle' : 'information-circle-outline';
+            iconName = focused ? 'person-circle' : 'person-circle-outline';
           }
           return <Ionicons name={iconName} size={size} color={color} />;
         },

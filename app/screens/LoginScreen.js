@@ -58,39 +58,39 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 50,
-        gap: 50,
+      
     },
     headerContainer: {
         height: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         gap: 20,
     },
     title: {
-        fontSize: 30,
-        fontWeight: 'bold',
-        color: '#fff',
+        fontSize: 20,
+        color: '#000',
         marginTop: 30,
+        fontFamily:'Jura-Bold',
     },
     logo: {
-        height: 100,
-        width: 100,
+        height: 70,
+        width: 70,
     },
     subtitle: {
         color: '#000000',
         textAlign: 'center',
-        fontSize: 40,
+        fontSize: 15,
         gap: 1,
-        fontStyle: 'italic',
+        
     },
     formContainer: {
         marginTop: 20,
     },
     signInText: {
         fontSize: 30,
-        fontWeight: '700',
-        textAlign: 'center',
-        fontStyle: 'italic',
+        fontWeight: 'bold',
+        textAlign: 'flex-start',
+       paddingRight:80,
     },
     inputGroup: {
         gap: 12,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     Loginbutton: {
-        backgroundColor: '#0021F8',
+        backgroundColor: '#000000',
         borderRadius: 50,
         paddingVertical: 15,
         marginTop: 20,
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
     },
     Signupbutton: {
-        backgroundColor: '#0021F8',
+        backgroundColor: '#000000',
         borderRadius: 50,
         paddingVertical: 15,
         marginTop: 20,
@@ -133,7 +133,7 @@ const styles = StyleSheet.create({
         color: '#fff', // Set the color of "Or" to white
         textAlign: 'center',
         marginTop:  12,
-        fontSize: 20,
+        fontSize: 12,
         fontWeight: 'bold', // Adjust the font size as needed
     },
 });

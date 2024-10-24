@@ -13,9 +13,9 @@ const Play = () => {
   return (
     <LinearGradient colors={['#a8e063', '#56ab2f']} style={styles.container}>
       <View style={styles.header}>
-        <Text style={styles.title}>Choose a Lesson</Text>
+        <Text style={styles.title}>Let's Play</Text>
       </View>
-      {['COUNTPLAY', 'SHAPEPLAY', 'ADDI', 'SUB', 'MULTI', 'DIVI'].map((lesson, index) => (
+      {['COUNT', 'SHAPE', 'ADDITION', 'SUBTRACTION', 'MULTIPLICATION', 'DIVISION'].map((lesson, index) => (
         <TouchableOpacity 
           key={index} 
           style={styles.button} 

@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import GetStarted from './app/screens/GetStarted';
 import LoginScreen from './app/screens/LoginScreen';
 import Lessons from './app/screens/Lesson';
 import SignUp from './app/screens/SignUp';
@@ -21,21 +22,22 @@ const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+        <Stack.Screen name="GETSTARTED" component={GetStarted} />
         <Stack.Screen name="LOGIN" component={LoginScreen} />
         <Stack.Screen name="LESSONS" component={Lessons} />
         <Stack.Screen name="SIGNUP" component={SignUp} />
-        <Stack.Screen name ="MULTI" component={MultiScreen} />
-        <Stack.Screen name ="DIVI" component={DiviScreen} />
-        <Stack.Screen name="ADDI" component={AddiScreen} />
-        <Stack.Screen name ="SUB" component={SubScreen} />
-        <Stack.Screen name ="SHAPE" component={LessonGuessShape} />
+        <Stack.Screen name ="MULTIPLICATION" component={MultiScreen} />
+        <Stack.Screen name ="DIVISION" component={DiviScreen} />
+        <Stack.Screen name="ADDITION" component={AddiScreen} />
+        <Stack.Screen name ="SUBTRACTION" component={SubScreen} />
+        <Stack.Screen name ="LESSONSHAPE" component={LessonGuessShape} />
         <Stack.Screen name ="LESSONCOUNTING" component={LessonCountingNumbers} /> 
         <Stack.Screen name ="LESSONADDITION" component={LessonAddition} />
         <Stack.Screen name ="LESSONSUBTRACTION" component={LessonSubtraction} />
         <Stack.Screen name ="LESSONDIVISION" component={LessonDivision} />
         <Stack.Screen name ="LESSONMULTIPLICATION" component={LessonMultiplication} />
-        <Stack.Screen name ="SHAPEPLAY" component={ShapePlay} />
-        <Stack.Screen name ="COUNTPLAY" component={CountPlay} />
+        <Stack.Screen name ="SHAPE" component={ShapePlay} />
+        <Stack.Screen name ="COUNT" component={CountPlay} />
       </Stack.Navigator>
     </NavigationContainer>
   );

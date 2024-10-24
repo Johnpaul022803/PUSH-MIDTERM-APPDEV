@@ -171,6 +171,11 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 20,
   },
+  logo: {
+    width: 90,
+    height: 70,
+    resizeMode: 'contain',
+  },
 });
 
 export default LESSONMULTIPLICATION;

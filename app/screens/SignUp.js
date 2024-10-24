@@ -2,9 +2,11 @@ import { StyleSheet, Text, TextInput, View, TouchableOpacity, Image, SafeAreaVie
 import React from 'react';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useNavigation } from '@react-navigation/native';
+import * as Font from 'expo-font';
 
 export default function SignupScree() {
     const navigation = useNavigation();
+
 
     const handleSignIn = () => {
         navigation.navigate("LOGIN"); // Navigate to login screen
@@ -25,8 +27,9 @@ export default function SignupScree() {
                 <Text style={styles.subtitle}>Learn Math Today</Text>
             </SafeAreaView>
             <View style={styles.formContainer}>
-                <Text style={styles.signInText}>Create New Account</Text>
+                <Text style={styles.signUpText}>Sign Up</Text>
                 <View style={styles.inputGroup}>
+                     
                     <InputField label="Full Name" placeholder="John Doe" />
                     <InputField label="Email Address" placeholder="learnmath221@gmail.com" />
                     <InputField label="Password" placeholder="***************" secureTextEntry={true} />
@@ -34,7 +37,12 @@ export default function SignupScree() {
                 <TouchableOpacity style={styles.button} onPress={handleSignUp}>
                     <Text style={styles.buttonText}>Create Account</Text>
                 </TouchableOpacity>
-
+                    <Text style={{
+                        color: '#000000',
+                        textAlign: 'center',
+                        fontSize: 14,
+                         marginTop: 20,
+                    }}>OR</Text>
                 <TouchableOpacity style={styles.button} onPress={handleSignIn}>
                     <Text style={styles.buttonText}>Already have an account? Sign In</Text>
                 </TouchableOpacity>
@@ -57,45 +65,48 @@ const InputField = ({ label, placeholder, secureTextEntry }) => (
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 50,
-        gap: 50,
+       paddingHorizontal: 50,
+       paddingTop: 30,
+       
     },
     headerContainer: {
         height: 200,
-        justifyContent: 'center',
-        alignItems: 'center',
+        justifyContent: 'flex-start',
+        alignItems: 'flex-start',
         gap: 20,
     },
     title: {
         fontSize: 30,
-        fontWeight: 'bold',
+        fontFamily:'Jura-Regular',
         color: '#fff',
         marginTop: 30,
+     
     },
     logo: {
-        height: 100,
-        width: 100,
+        height: 70,
+        width: 70,
     },
     subtitle: {
         color: '#000000',
         textAlign: 'center',
-        fontSize: 40,
+        fontSize: 15,
         gap: 1,
-        fontStyle: 'italic',
+       
     },
     formContainer: {
         marginTop: 20,
     },
-    signInText: {
+    signUpText: {
         fontSize: 30,
-        fontWeight: '700',
-        textAlign: 'center',
-        fontStyle: 'italic',
+        fontWeight: 'bold',
+        textAlign: 'left',
+
     },
     inputGroup: {
         gap: 12,
         marginTop: 12,
         fontSize: 12,
+        marginBottom: 15,
     },
     inputWrapper: {
         gap: 6,
@@ -106,7 +117,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
     },
     button: {
-        backgroundColor: '#0021F8',
+        backgroundColor: '#000000',
         borderRadius: 50,
         paddingVertical: 15,
         marginTop: 20,

@@ -93,7 +93,7 @@ const LESSONDIVISION = () => {
     <LinearGradient colors={gradientColors} style={styles.gradient}>
       <SafeAreaView style={styles.container}>
         <View style={styles.header}>
-          <Image source={require('../../assets/favicon.png')} />
+          <Image style={styles.logo} source={require('../../assets/favicon.png')} />
           <Text>Learn Math Today</Text>
           <Text style={styles.headerTitle}>LET'S LEARN OUR NUMBERS!</Text>
         </View>
@@ -169,6 +169,11 @@ const styles = StyleSheet.create({
   headerTitle: {
     fontWeight: 'bold',
     fontSize: 20,
+  },
+  logo: {
+    width: 90,
+    height: 70,
+    resizeMode: 'contain',
   },
 });
 
