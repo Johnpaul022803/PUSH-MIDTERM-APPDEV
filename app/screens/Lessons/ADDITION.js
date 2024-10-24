@@ -3,7 +3,7 @@ import { View, Text, StyleSheet, SafeAreaView, Image, FlatList } from 'react-nat
 import { LinearGradient } from 'expo-linear-gradient';
 import { gradientColors } from '../COLOR/color';
 
-const fruits = [
+const addition = [
   { id: '1', number: require('../../assets/fruits/Number/1.png'), name: 'One' },
   { id: '2', number: require('../../assets/fruits/Number/2.png'), name: 'Two' },
   { id: '3', number: require('../../assets/fruits/Number/3.png'), name: 'Three' },
@@ -16,7 +16,7 @@ const fruits = [
   { id: '10', number: require('../../assets/fruits/Number/10.png'), name: 'Ten' },
 ];
 
-const LESSONCOUNTINGNUMBERS = () => {
+const LESSONADDITION = () => {
   const renderItem = ({ item }) => (
     <View style={styles.outerContainer}>
       <View style={styles.imageContainer}>
@@ -97,10 +97,10 @@ const LESSONCOUNTINGNUMBERS = () => {
           <Text style={styles.headerTitle}>LET'S LEARN OUR NUMBERS!</Text>
         </View>
         <FlatList
-          data={fruits}
+          data={addition}
           renderItem={renderItem}
           keyExtractor={(item) => item.id}
-          numColumns={1} // Keeps two items in a row
+          numColumns={2} // Keeps two items in a row
         />
       </SafeAreaView>
     </LinearGradient>
@@ -171,4 +171,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LESSONCOUNTINGNUMBERS;
+export default LESSONADDITION;
