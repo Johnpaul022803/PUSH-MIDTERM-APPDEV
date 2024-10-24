@@ -12,7 +12,9 @@ import LessonCountingNumbers from './app/screens/Lessons/COUNTING';
 import ShapePlay from './app/screens/ShapePlay';
 import CountPlay from './app/screens/CountPlay';
 import LessonAddition from './app/screens/Lessons/ADDITION';
-
+import LessonDivision from './app/screens/Lessons/DIVISION';
+import LessonMultiplication from './app/screens/Lessons/MULTIPLICATION';
+import LessonSubtraction from './app/screens/Lessons/SUBTRACTION';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -29,6 +31,9 @@ const App = () => {
         <Stack.Screen name ="SHAPE" component={LessonGuessShape} />
         <Stack.Screen name ="LESSONCOUNTING" component={LessonCountingNumbers} /> 
         <Stack.Screen name ="LESSONADDITION" component={LessonAddition} />
+        <Stack.Screen name ="LESSONSUBTRACTION" component={LessonSubtraction} />
+        <Stack.Screen name ="LESSONDIVISION" component={LessonDivision} />
+        <Stack.Screen name ="LESSONMULTIPLICATION" component={LessonMultiplication} />
         <Stack.Screen name ="SHAPEPLAY" component={ShapePlay} />
         <Stack.Screen name ="COUNTPLAY" component={CountPlay} />
       </Stack.Navigator>
