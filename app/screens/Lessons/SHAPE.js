@@ -59,8 +59,8 @@ const styles = StyleSheet.create({
   },
   header: {
     alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 10,
+    marginTop:77,
+    marginBottom:62,
   },
   title: {
     fontWeight: 'bold',

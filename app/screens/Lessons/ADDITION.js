@@ -121,6 +121,9 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
     margin: 10,
     padding: 10,
+    width: 180
+   
+
   },
   itemContainer: {
     flex: 1,
@@ -128,7 +131,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
-    width: 140,
+    width: 290,
     height: 180,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
