@@ -119,7 +119,7 @@ const LESSONCOUNTINGNUMBERS = () => {
         <View style={styles.header}>
           <Image style={styles.logo} source={require('../../assets/favicon.png')} />
           <Text>Learn Math Today</Text>
-          <Text style={styles.headerTitle}>LET'S LEARN OUR NUMBERS!</Text>
+          <Text style={styles.headerTitle}>COUNTING NUMBERS</Text>
         </View>
         <FlatList
           data={fruits}
@@ -146,15 +146,17 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     margin: 10,
     padding: 10,
-    width: 160, // Adjusted to give more space for number and images
-    height: 180,
+    width: 140, // Adjusted to give more space for number and images
+    height: 200,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
     shadowRadius: 3,
     elevation: 3,
-    alignItems: 'center', // Center content inside the item container
+    alignItems: 'flex-start', // Center content inside the item container
     justifyContent: 'center',
+    borderWidth: 5,
+    borderColor: '#000',
   },
   itemRow: {
     flexDirection: 'row', // Align items in a row (number on left, images on right)
@@ -176,22 +178,33 @@ const styles = StyleSheet.create({
     width: 40,
     height: 40,
     marginHorizontal: 3,
-    resizeMode: 'contain',
+    justifyContent: 'center',
+    alignItems: 'center',
+    alignSelf: 'center',
+    paddingLeft: 10,
+
+
+
+    
   },
   numberImage: {
     width: 40,
     height: 40,
     marginRight: 10, // Adds space between number and images
+   
+
+    
   },
   text: {
     marginTop: 5,
-    fontSize: 14,
-    color: '#333',
+    fontSize: 20,
+    color: '#000',
+    fontWeight: 'bold',
   },
   header: {
     alignItems: 'center',
-    marginBottom: 20,
-    marginTop: 10,
+    marginTop:77,
+    marginBottom:62,
   },
   headerTitle: {
     fontWeight: 'bold',
@@ -201,6 +214,7 @@ const styles = StyleSheet.create({
     width: 90,
     height: 70,
     resizeMode: 'contain',
+    
   },
 });
 

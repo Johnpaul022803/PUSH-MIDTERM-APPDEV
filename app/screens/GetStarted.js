@@ -56,8 +56,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 36,
-    fontWeight: 'bold',
-    fontFamily:'Jura-Bold',
+    fontFamily:'Jura-Regular',
   },
   logo: {
     width: 160,
@@ -91,7 +90,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   GetStartedbuttonText: {
-    fontSize: 18,
+    fontSize: 36,
     fontWeight: 'bold',
    justifyContent: 'center',
    color: '#fff',

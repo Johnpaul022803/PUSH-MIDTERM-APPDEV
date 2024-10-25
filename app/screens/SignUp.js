@@ -43,8 +43,8 @@ export default function SignupScree() {
                         fontSize: 14,
                          marginTop: 20,
                     }}>OR</Text>
-                <TouchableOpacity style={styles.button} onPress={handleSignIn}>
-                    <Text style={styles.buttonText}>Already have an account? Sign In</Text>
+                <TouchableOpacity onPress={handleSignIn}>
+                    <Text style={styles.UnderlineText}>Already have an account?  Sign In</Text>
                 </TouchableOpacity>
             </View>
         </LinearGradient>
@@ -128,4 +128,12 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
+    UnderlineText: {
+        textDecorationLine: 'underline',
+        textAlign: 'center',
+        color: '#0000FF',
+        marginTop: 20,
+
+    },
+    
 });

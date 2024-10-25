@@ -31,12 +31,12 @@ import { useNavigation } from '@react-navigation/native';
                 
                 <TouchableOpacity style={styles.Loginbutton}
                 onPress={handleLessons}>
-                    <Text style={styles.LoginbuttonText}>Log In</Text>
+                    <Text style={styles.LoginbuttonText}>Sign In</Text>
                 </TouchableOpacity>
-                <Text style={styles.orText}>Or</Text>
+                <Text style={styles.orText}>OR</Text>
                 
                 <TouchableOpacity style={styles.Signupbutton} onPress={handleSignUp}>
-                    <Text style={styles.SignupbuttonText}>Sign Up</Text>
+                    <Text style={styles.SignupUnderlineText}>Don't Have An Account? Sign Up</Text>
                 </TouchableOpacity>
             </View>
         </LinearGradient>
@@ -61,10 +61,12 @@ const styles = StyleSheet.create({
       
     },
     headerContainer: {
-        height: 200,
+        height: 100,
         justifyContent: 'flex-start',
         alignItems: 'flex-start',
-        gap: 20,
+        gap: 10,
+        
+      
     },
     title: {
         fontSize: 20,
@@ -75,6 +77,7 @@ const styles = StyleSheet.create({
     logo: {
         height: 70,
         width: 70,
+      
     },
     subtitle: {
         color: '#000000',
@@ -84,13 +87,15 @@ const styles = StyleSheet.create({
         
     },
     formContainer: {
-        marginTop: 20,
+        marginBottom: 50,
     },
     signInText: {
         fontSize: 30,
         fontWeight: 'bold',
         textAlign: 'flex-start',
-       paddingRight:80,
+       paddingRight:90,
+       marginTop: 50,
+       paddingVertical:33,
     },
     inputGroup: {
         gap: 12,
@@ -109,7 +114,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#000000',
         borderRadius: 50,
         paddingVertical: 15,
-        marginTop: 20,
+        marginTop: 50,
         alignItems: 'center',
     },
     LoginbuttonText: {
@@ -117,24 +122,20 @@ const styles = StyleSheet.create({
         fontSize: 16,
         fontWeight: 'bold',
     },
-    Signupbutton: {
-        backgroundColor: '#000000',
-        borderRadius: 50,
-        paddingVertical: 15,
-        marginTop: 20,
-        alignItems: 'center',
-    },
-    SignupbuttonText: {
-        color: '#fff',
-        fontSize: 16,
-        fontWeight: 'bold',
+    
+    SignupUnderlineText: {
+        color: '#0000FF',
+        fontSize: 12,
+        textDecorationLine: 'underline',
+        textAlign: 'center',
+        
     },
     orText: {
-        color: '#fff', // Set the color of "Or" to white
+        color: '#fff', 
         textAlign: 'center',
-        marginTop:  12,
+        marginVertical:20  ,
         fontSize: 12,
-        fontWeight: 'bold', // Adjust the font size as needed
+       
     },
 });
 export default LoginScreen;

@@ -72,9 +72,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#8BD68E', // Custom background for the container
     alignItems: 'center',
     justifyContent: 'center',
-   
-    
-    
     margin: 10,
     borderRadius: 40, // Rounded corners for the container
     shadowColor: '#000',
