@@ -26,7 +26,14 @@ const ShapePlay = () => {
 
   useEffect(() => {
     generateQuestion();
-    const timer = setInterval(() => {
+    startTimer();
+    return () => clearInterval(timer); // Clear timer on unmount
+  }, []);
+
+  let timer; // Declare timer variable here
+
+  const startTimer = () => {
+    timer = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 1) {
           clearInterval(timer);
@@ -37,17 +44,15 @@ const ShapePlay = () => {
         return prev - 1;
       });
     }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  };
 
   const generateQuestion = () => {
     const randomShape = shapes[Math.floor(Math.random() * shapes.length)];
     setCurrentShape(randomShape);
-
+    
     let allChoices = shapes.map(shape => shape.name).filter(name => name !== randomShape.name);
     allChoices = [randomShape.name, allChoices[Math.floor(Math.random() * allChoices.length)]];
     const shuffledChoices = allChoices.sort(() => Math.random() - 0.5);
-
     setChoices(shuffledChoices);
     setSelectedChoice(null);
   };
@@ -65,7 +70,22 @@ const ShapePlay = () => {
   };
 
   const showScoreAlert = () => {
-    Alert.alert("Time's up!", `Your final score is: ${score}`, [{ text: "OK" }]);
+    Alert.alert(
+      "Time's up!",
+      `Your final score is: ${score}`,
+      [
+        { text: "Try Again", onPress: restartGame },
+        { text: "Exit", onPress: () => navigation.goBack() }
+      ]
+    );
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setTimeRemaining(30);
+    setIsGameOver(false);
+    generateQuestion();
+    startTimer(); // Start the timer again
   };
 
   return (

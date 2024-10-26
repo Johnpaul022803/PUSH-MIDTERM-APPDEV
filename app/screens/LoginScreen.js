@@ -31,7 +31,7 @@ import { useNavigation } from '@react-navigation/native';
                 
                 <TouchableOpacity style={styles.Loginbutton}
                 onPress={handleLessons}>
-                    <Text style={styles.LoginbuttonText}>Sign In</Text>
+                    <Text style={styles.LoginbuttonText}>Log in</Text>
                 </TouchableOpacity>
                 <Text style={styles.orText}>OR</Text>
                 
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
     
     SignupUnderlineText: {
         color: '#0000FF',
-        fontSize: 12,
+        fontSize: 15,
         textDecorationLine: 'underline',
         textAlign: 'center',
         

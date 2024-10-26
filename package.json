@@ -30,6 +30,5 @@
   "devDependencies": {
     "@babel/core": "^7.20.0",
     "@react-native/metro-config": "^0.76.0"
-  },
-  "private": true
+  }
 }

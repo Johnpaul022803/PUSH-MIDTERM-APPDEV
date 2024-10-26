@@ -10,12 +10,19 @@ const SubScreen = () => {
   const [score, setScore] = useState(0);
   const [timeRemaining, setTimeRemaining] = useState(30);
   const [isGameOver, setIsGameOver] = useState(false);
-  const [selectedChoice, setSelectedChoice] = useState(null); // New state for selected choice
-  const [correctAnswer, setCorrectAnswer] = useState(null); // New state for correct answer
+  const [selectedChoice, setSelectedChoice] = useState(null); 
+  const [correctAnswer, setCorrectAnswer] = useState(null);
 
   useEffect(() => {
     generateQuestion();
-    const timer = setInterval(() => {
+    startTimer();
+    return () => clearInterval(timer); // Clear timer on unmount
+  }, []);
+
+  let timer; // Declare timer variable here
+
+  const startTimer = () => {
+    timer = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 1) {
           clearInterval(timer);
@@ -26,38 +33,55 @@ const SubScreen = () => {
         return prev - 1;
       });
     }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  };
 
   const generateQuestion = () => {
-    const num1 = Math.floor(Math.random() * 50) + 1;
-    const num2 = Math.floor(Math.random() * 50) + 1;
+    const num1 = Math.floor(Math.random() * 10) + 1;
+    const num2 = Math.floor(Math.random() * 10) + 1;
     const correctAnswerValue = num1 - num2;
-    setCorrectAnswer(correctAnswerValue); // Set the correct answer
+    setCorrectAnswer(correctAnswerValue);
     setQuestion(`${num1} - ${num2} = ?`);
+    
+    let incorrectAnswer;
+    do {
+      incorrectAnswer = correctAnswerValue + Math.floor(Math.random() * 5) - 2;
+    } while (incorrectAnswer === correctAnswerValue || incorrectAnswer < 0);
 
-    // Generate an incorrect answer that is not equal to the correct answer
-    const incorrectAnswer = correctAnswerValue + Math.floor(Math.random() * 10) - 5;
     const allChoices = [correctAnswerValue, incorrectAnswer];
     const shuffledChoices = allChoices.sort(() => Math.random() - 0.5);
     setChoices(shuffledChoices);
-    setSelectedChoice(null); // Reset selected choice for new question
+    setSelectedChoice(null);
   };
 
   const handleAnswer = (choice) => {
     if (!isGameOver) {
-      setSelectedChoice(choice); // Set selected choice
+      setSelectedChoice(choice);
       if (choice === correctAnswer) {
         setScore(score + 1);
       }
       setTimeout(() => {
-        generateQuestion(); // Generate a new question after a short delay
-      }, 1000); // Delay to show the result
+        generateQuestion();
+      }, 1000);
     }
   };
 
   const showScoreAlert = () => {
-    Alert.alert("Time's up!", `Your final score is: ${score}`, [{ text: "OK" }]);
+    Alert.alert(
+      "Time's up!",
+      `Your final score is: ${score}`,
+      [
+        { text: "Try Again", onPress: restartGame },
+        { text: "Exit", onPress: () => navigation.goBack() }
+      ]
+    );
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setTimeRemaining(30);
+    setIsGameOver(false);
+    generateQuestion();
+    startTimer(); // Start the timer again
   };
 
   return (
@@ -76,7 +100,7 @@ const SubScreen = () => {
               selectedChoice === choice && (choice === correctAnswer ? styles.correctButton : styles.incorrectButton)
             ]}
             onPress={() => handleAnswer(choice)}
-            disabled={isGameOver} // Disable buttons when game is over
+            disabled={isGameOver}
           >
             <Text style={styles.buttonText}>{choice}</Text>
           </TouchableOpacity>

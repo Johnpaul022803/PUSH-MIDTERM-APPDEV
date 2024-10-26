@@ -147,7 +147,7 @@ const styles = StyleSheet.create({
     margin: 10,
     padding: 10,
     width: 140, // Adjusted to give more space for number and images
-    height: 250,
+    height: 280,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.3,
@@ -176,8 +176,8 @@ const styles = StyleSheet.create({
    
   },
   image: {
-    width: 40,
-    height: 40,
+    width: 35,
+    height: 35,
     marginHorizontal: 3,
     justifyContent: 'center',
     alignItems: 'center',

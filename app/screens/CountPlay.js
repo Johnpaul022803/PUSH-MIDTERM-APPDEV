@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View, Image, Alert } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
 
 const shapes = [
   { name: 'circle', image: require('../assets/shapes/circle.png') },
@@ -24,6 +25,7 @@ const getRandomShapes = (num) => {
 };
 
 const CountPlay = () => {
+  const navigation = useNavigation();
   const [randomShapes, setRandomShapes] = useState([]);
   const [targetShape, setTargetShape] = useState(null);
   const [choices, setChoices] = useState([]);
@@ -35,7 +37,14 @@ const CountPlay = () => {
 
   useEffect(() => {
     startNewGame();
-    const timer = setInterval(() => {
+    startTimer();
+    return () => clearInterval(timer); // Clear timer on unmount
+  }, []);
+
+  let timer; // Declare timer variable here
+
+  const startTimer = () => {
+    timer = setInterval(() => {
       setTimeRemaining(prev => {
         if (prev <= 1) {
           clearInterval(timer);
@@ -46,20 +55,17 @@ const CountPlay = () => {
         return prev - 1;
       });
     }, 1000);
-    return () => clearInterval(timer);
-  }, []);
+  };
 
   const startNewGame = () => {
     const shapesToDisplay = getRandomShapes(20); // Display 20 random shapes
     setRandomShapes(shapesToDisplay);
     const randomShapeToCount = shapes[Math.floor(Math.random() * shapes.length)];
     setTargetShape(randomShapeToCount);
-
     const correctCount = shapesToDisplay.filter(shape => shape.name === randomShapeToCount.name).length;
     const incorrectCount = correctCount + Math.floor(Math.random() * 5) - 2;
     const allChoices = [correctCount, incorrectCount].sort(() => Math.random() - 0.5);
     setChoices(allChoices);
-
     setSelectedChoice(null);
     setIsCorrect(null);
   };
@@ -70,12 +76,10 @@ const CountPlay = () => {
       const correctCount = randomShapes.filter(shape => shape.name === targetShape.name).length;
       const correctChoice = choice === correctCount;
       setIsCorrect(correctChoice);
-
       if (correctChoice) {
         setScore(score + 1);
         setTimeRemaining(prev => prev + 5); // Add 5 seconds to the timer for correct answer
       }
-
       setTimeout(() => {
         startNewGame(); // Generate a new question after a short delay
       }, 1000); // Delay to show the result
@@ -83,7 +87,22 @@ const CountPlay = () => {
   };
 
   const showScoreAlert = () => {
-    Alert.alert("Time's up!", `Your final score is: ${score}`, [{ text: "OK" }]);
+    Alert.alert(
+      "Time's up!",
+      `Your final score is: ${score}`,
+      [
+        { text: "Try Again", onPress: restartGame },
+        { text: "Exit", onPress: () => navigation.goBack() }
+      ]
+    );
+  };
+
+  const restartGame = () => {
+    setScore(0);
+    setTimeRemaining(30);
+    setIsGameOver(false);
+    startNewGame();
+    startTimer(); // Start the timer again
   };
 
   return (
